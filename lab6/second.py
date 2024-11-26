@@ -67,7 +67,7 @@ def division_result():
 
 
 # вариант 2
-def average_of_5_ond_15():
+def average_of_5_and_15():
     # Фильтруем элементы, удовлетворяющие условию 5 <= A_i <= 15
     filtered_elements = [x for x in result if 5 <= x <= 15]
     # Проверяем, есть ли элементы, удовлетворяющие условию
