@@ -1,80 +1,25 @@
-def factorial(n):
-    if n < 0:
-        return "Факториал не определен для отрицательных чисел"
-    elif n == 0 or n == 1:
-        return 1
-    else:
-        result = 1
-        for i in range(2, n + 1):
-            result *= i
-        return result
-
-
-# Задание 1
-n = int(input("Введите число n: "))
-print(f"Факториал {n}! = {factorial(n)}")
-
+import first
+import second
+import third
+import fourth
 import random
 import math
 
+# Задание 1
+n = int(input("Введите число n: "))
+print(f"Факториал {n}! = {first.factorial(n)}")
+
+
 # Задание 2
-# Создаем массив A размерностью 10
-A = [random.uniform(1, 10) for _ in range(10)]
-print("Исходный массив A:", A)
 
-
-# Вариант 12, данные из таблицы 1
-# Определяем функции F1, F2 и F3
-def F1(x):
-    return 2 * x * math.e ** (-x)
-
-
-def F2(x):
-    return math.cos(2 * x)
-
-
-def F3(x):
-    return x ** 2 - math.cos(x)
-
-
-# Вариант 2, данные из таблицы 1
-# Определяем функции F1, F2 и F3
-# def F1(x):
-#     return 4 * x + 2
-#
-#
-# def F2(x):
-#     return 5 / (x + 0.4)
-#
-#
-# def F3(x):
-#     return 0.5 / (2 * math.sin(4 * x))
-
-
-# Определяем функцию F(x)
-def F(x):
-    if x <= 3:
-        return F1(x)
-    elif 3 < x <= 6:
-        return F2(x)
-    elif 6 < x <= 10:
-        return F3(x)
-
-
+print("Исходный массив A:", second.A)
 # Заполняем массив значениями функции F(i)
-F_values = [F(x) for x in A]
-print("Значения функции F(i):", F_values)
-
-# Проверяем селективную обработку
-result = []
-for i in range(0, 10):
-    result.append(F_values[i])
-
-print("Результат расчета:", result)
+print("Значения функции F(i):", second.F_values)
+print("Результат расчета:", second.result)
 
 # Вариант 12 из таблицы 2
 # Находим минимальный и максимальный элементы
-filtered_result = [x for x in result]
+filtered_result = [x for x in second.result]
 if filtered_result:
     min_value = min(filtered_result)
     max_value = max(filtered_result)
@@ -84,9 +29,12 @@ else:
     print("В массиве нет значений для вычисления.")
 
 
+# Вывод в файл
+
 with open("output.txt", "w") as file:
-    file.write("Исходный массив A: " + str(A) + "\n")
+    file.write("Исходный массив A: " + str(second.A) + "\n")
     file.write(f"частное от деления минимального элемента на максимальный элемент: {division_result}\n")
+
 # Вариант 2, из таблицы 2
 #
 # # Фильтруем элементы, удовлетворяющие условию 5 <= A_i <= 15
@@ -99,3 +47,27 @@ with open("output.txt", "w") as file:
 #     print(f"Среднее арифметическое элементов, удовлетворяющих условию 5 <= A_i <= 15: {average}")
 # else:
 #     print("Нет элементов, удовлетворяющих условию.")
+
+
+# Задание 3
+
+
+# Размерность матрицы
+n = int(input("Введите число n: "))
+
+# Создаем матрицу и заполняем её случайными значениями
+matrix = third.create_matrix(n)
+
+# Выводим матрицу
+print("Созданная матрица:")
+for row in matrix:
+    print(row)
+
+# Находим сумму элементов в заштрихованной части матрицы
+shaded_sum = third.sum_shaded_elements(matrix)
+print(f"Сумма элементов в заштрихованной части матрицы: {shaded_sum}")
+
+
+# Задание 4
+print(f"Массив A: {fourth.a}")
+print(f"Целые числа из интервала ({fourth.m}, {fourth.M}), которые не входят в последовательность a1, ..., a30: {fourth.missing_numbers}")
