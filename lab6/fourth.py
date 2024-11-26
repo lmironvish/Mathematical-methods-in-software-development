@@ -1,11 +1,9 @@
 import random
 
-# Получаем целое число m от пользователя
-m = int(input("Введите наименьшее целое число m: "))
-M = int(input("Введите наибольшее целое число M: "))
-
-# Определяем последовательность a1, ..., a30
 a = list(int(random.uniform(1, 31)) for _ in range(100))  # Пример последовательности от 1 до 30
 
-# Находим все целые числа в интервале (m, M), которые не входят в последовательность a1, ..., a30
-missing_numbers = [x for x in range(m + 1, M + 1) if x not in a]
+def missing_numbers(start, end):
+    # Определяем последовательность a1, ..., a30
+    missing_numbers_array = [x for x in range(start + 1, end + 1) if x not in a]
+
+    return missing_numbers_array
